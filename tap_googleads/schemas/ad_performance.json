@@ -1,100 +1,32 @@
 {
     "type": "object",
     "properties": {
-        "customer": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            }
+        "customer__id": { "type": "string" },
+        "campaign__name": { "type": "string" },
+        "campaign__id": { "type": "string" },
+        "adGroup__id": { "type": "string" },
+        "adGroup__name": { "type": "string" },
+        "metrics__clicks": { "type": "string" },
+        "metrics__costMicros": { "type": "string" },
+        "metrics__ctr": { "type": "number" },
+        "metrics__impressions": { "type": "string" },
+        "metrics__average_cpc": { "type": "number" },
+        "metrics__average_cpm": { "type": "number" },
+        "metrics__interactions": { "type": "string" },
+        "metrics__interaction_rate": { "type": "number" },
+        "adGroupAd__ad__id": { "type": "string" },
+        "adGroupAd__ad__name": { "type": "string" },
+        "adGroupAd__ad__headlines": {
+            "type": "array",
+            "items": { "type": "string" }
         },
-        "campaign": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            }
+        "adGroupAd__ad__descriptions": {
+            "type": "array",
+            "items": { "type": "string" }
         },
-        "adGroup": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "metrics": {
-            "type": "object",
-            "properties": {
-                "clicks": {
-                    "type": "string"
-                },
-                "costMicros": {
-                    "type": "string"
-                },
-                "ctr": {
-                    "type": "number"
-                },
-                "impressions": {
-                    "type": "string"
-                },
-                "average_cpc": {
-                    "type": "number"
-                },
-                "average_cpm": {
-                    "type": "number"
-                },
-                "interactions": {
-                    "type": "string"
-                },
-                "interaction_rate": {
-                    "type": "number"
-                }
-            }
-        },
-        "adGroupAd": {
-            "type": "object",
-            "properties": {
-                "ad": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "headlines": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "descriptions": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "segments": {
-            "type": "object",
-            "properties": {
-                "date": {
-                    "type": "string"
-                }
-            }
+        "segments__date": {
+            "type": "string",
+            "format": "date-time"
         }
     }
 }
