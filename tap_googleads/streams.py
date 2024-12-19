@@ -489,7 +489,7 @@ SELECT ad_group.id, ad_group.name, campaign.id, campaign.name, customer.id, ad_g
   ad_group_ad.ad.responsive_search_ad.descriptions,
   ad_group_ad.ad.responsive_display_ad.long_headline
 FROM ad_group_ad
-WHERE segments.date >= {start_value} and segments.date <= {self.config["end_date"]}
+WHERE segments.date >= '{start_value}' and segments.date <= '{self.config["end_date"]}'
 ORDER BY segments.date ASC
         """
 
