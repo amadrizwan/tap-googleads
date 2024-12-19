@@ -5,7 +5,7 @@ from __future__ import annotations
 import datetime
 from http import HTTPStatus
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, Iterable
+from typing import TYPE_CHECKING, Any, Dict, Iterable, Optional
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
@@ -492,7 +492,14 @@ FROM ad_group_ad
 WHERE segments.date >= '{start_value}' and segments.date <= '{self.config["end_date"]}'
 ORDER BY segments.date ASC
         """
-
+    
+    def get_url_params(self, context: Optional[dict], next_page_token: Optional[Any]) -> Dict[str, Any]:
+        params: dict = {}
+        if next_page_token:
+            params["pageToken"] = next_page_token
+        # Do not add order_by or sort here.
+        return params
+    
     def post_process(self, row: dict, context: dict | None = None) -> dict | None:
         """Post process the record."""
         if row.get("adGroupAd", {}).get("ad", {}).get("responsiveSearchAd"):
